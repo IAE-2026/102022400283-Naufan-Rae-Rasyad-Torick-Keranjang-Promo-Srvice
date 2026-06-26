@@ -91,7 +91,7 @@ class CartController extends Controller
             'status' => 'success',
             'message' => 'Cart created successfully',
             'data' => $cart
-        ]);
+        ], 201);
     }
 
     #[OA\Get(

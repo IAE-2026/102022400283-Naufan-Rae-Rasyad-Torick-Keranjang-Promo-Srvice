@@ -29,6 +29,25 @@ class CartController extends Controller
         ]);
     }
 
+    #[OA\Get(
+        path: '/api/v1/carts',
+        operationId: 'getCarts',
+        tags: ['Carts'],
+        summary: 'Get list carts',
+        security: [['ApiKeyAuth' => []]],
+        responses: [
+            new OA\Response(response: 200, description: 'Carts retrieved successfully'),
+        ]
+    )]
+    public function index()
+    {
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Carts retrieved successfully',
+            'data' => Cart::all()
+        ]);
+    }
+
     #[OA\Post(
         path: '/api/v1/carts',
         operationId: 'createCart',
